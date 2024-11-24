@@ -167,14 +167,67 @@ type cardNumber = {
 type cardDate = {
   cardDate: string;
 };
-type cardDetails = cardNumber & cardDate & {
-  cvv: number;
-};
+type cardDetails = cardNumber &
+  cardDate & {
+    cvv: number;
+  };
 // mixed object types
 
+// array
+const superHeros: string[] = ["thor", "spiderman", "ironman"];
+const numbers: number[] = [1, 2, 3];
+const heroPower: Array<string> = [];
 
+type Users = {
+  name: string;
+  isActive: boolean;
+};
 
+const allUsers: Users[] = [];
 
+allUsers.push({ name: "john", isActive: true });
 
+const MLModels: number[][] = [
+  [25, 89, 23, 45],
+  [90, 45, 67],
+];
+// union is used when we want to assign more than one type to a variable
+let score: number | string = 33;
+score = 44;
+
+score = "33";
+type admin = {
+  name: string;
+};
+
+type Admin = {
+  name: string;
+  id: number;
+};
+
+let hitesh: admin | Admin = { name: "hitesh", id: 334 };
+hitesh = { name: "hitesh", id: 334 };
+
+// function getDbId(id: number | string) {
+//   console.log(`DB id is ${id}`);
+// }
+
+// getDbId(3);
+// getDbId("3");
+
+function getDbId(id: number | string) {
+  if (typeof id === "string") {
+    id.toUpperCase();
+  } else {
+    id + 2;
+  }
+}
+getDbId(3);
+getDbId("3");
+
+// type narrowing
+const data: (number | string)[] = [1, 2, 3, "4"];
+
+data.push(4);
 
 export {};
