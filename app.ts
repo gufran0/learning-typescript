@@ -230,4 +230,7 @@ const data: (number | string)[] = [1, 2, 3, "4"];
 
 data.push(4);
 
+// tuple
+
+
 export {};
